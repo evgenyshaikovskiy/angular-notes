@@ -7,11 +7,13 @@ import { ModalComponent } from './modal/modal.component';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NoteComponent, ModalComponent],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() =>
       initializeApp({
         apiKey: 'AIzaSyCpci1KXvSPYIEFldrxgX-flQVOfSYrg-8',
