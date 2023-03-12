@@ -1,0 +1,53 @@
+<div class="note-wrapper">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card card-body">
+        <h5>NOTE TITLE</h5>
+        <p class="text-muted">
+          dlaksldaksldajgakcnakljsda ajd aksjdalksdjaksdjal aksdjaskldjaslk
+        </p>
+        <div class="d-flex align-items-center">
+          <span class="mx-2">
+            <i
+              class="bi bi-pen note-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#editNotesModal"
+            ></i>
+          </span>
+          <span class="mx-2">
+            <i class="bi bi-trash note-btn"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary mt-2"
+    data-bs-toggle="modal"
+    data-bs-target="#addNotesModal"
+  >
+    Create note
+  </button>
+
+  <app-modal
+    [modalConfig]="{
+      id: 'addNotesModal',
+      modalLabel: 'Create new note',
+      modalTitleLabel: 'Note title',
+      modalTextLabel: 'Note text',
+      modalResumeBtnText: 'Create note'
+    }"
+  ></app-modal>
+
+  <app-modal
+    [modalConfig]="{
+      id: 'editNotesModal',
+      modalLabel: 'Edit note',
+      modalTitleLabel: 'Note title',
+      modalTextLabel: 'Note text',
+      modalResumeBtnText: 'Edit note'
+    }"
+  >
+  </app-modal>
+</div>
