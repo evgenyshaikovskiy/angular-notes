@@ -21,19 +21,31 @@ export class ModalComponent {
   @Input() modalConfig!: ModalConfig;
   @Input() action!: string;
 
-  constructor(private noteService: NoteService){}
+  constructor(private noteService: NoteService) {}
 
   public onClick() {
     if (this.action === 'create') {
-      this.noteService.addNote({id:'', noteTitle: this.noteForm.value.title, noteDescription: this.noteForm.value.description}).then((note) => {
-        if (note) {
-          console.log(`${note} was successfully created`);
-          this.noteForm.reset();
-        }
-      })
+      this.noteService
+        .addNote({
+          id: '',
+          noteTitle: this.noteForm.value.title,
+          noteDescription: this.noteForm.value.description,
+        })
+        .then((note) => {
+          if (note) {
+            console.log(`${note} was successfully created`);
+            this.noteForm.reset();
+          }
+        });
+    } else {
+      this.noteService.updateNote(
+        {
+          id: this.noteForm.value.id,
+          noteDescription: this.noteForm.value.description,
+          noteTitle: this.noteForm.value.title,
+        },
+        this.noteForm.value.id
+      );
     }
-    else {
-      this.noteService.updateNote({id: this.noteForm.value.id, noteDescription: this.noteForm.value.description, noteTitle: this.noteForm.value.title}, this.noteForm.value.id);
-    }
-  }  
+  }
 }

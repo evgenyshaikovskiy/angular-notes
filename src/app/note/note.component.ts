@@ -19,14 +19,14 @@ export class NoteComponent implements OnInit {
     this.noteForm = formBuilder.group({
       id: [''],
       title: ['', Validators.required],
-      description: ['', Validators.required]
-    })
+      description: ['', Validators.required],
+    });
   }
 
   public getAllNotes() {
     this.noteService.getAllNotes().subscribe((result) => {
       this.notes = result;
-    })
+    });
   }
 
   public deleteNote(note: Note) {
@@ -37,7 +37,7 @@ export class NoteComponent implements OnInit {
     this.noteForm.setValue({
       description: note.noteDescription,
       title: note.noteTitle,
-      id: note.id
+      id: note.id,
     });
   }
 }
