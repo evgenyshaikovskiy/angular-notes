@@ -8,9 +8,15 @@ import { ModalComponent } from './modal/modal.component';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NoteCardComponent } from './note-card/note-card.component';
 
 @NgModule({
-  declarations: [AppComponent, NoteComponent, ModalComponent],
+  declarations: [
+    AppComponent,
+    NoteComponent,
+    ModalComponent,
+    NoteCardComponent,
+  ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

@@ -1,25 +1,7 @@
 <div class="note-wrapper">
   <div class="row">
-    <div class="col-md-4" *ngFor="let note of notes">
-      <div class="card card-body">
-        <h5>{{ note.noteTitle }}</h5>
-        <p class="text-muted">
-          {{ note.noteDescription }}
-        </p>
-        <div class="d-flex align-items-center">
-          <span class="mx-2">
-            <i
-              class="bi bi-pen note-btn"
-              data-bs-toggle="modal"
-              data-bs-target="#editNotesModal"
-              (click)="updateNote(note)"
-            ></i>
-          </span>
-          <span class="mx-2">
-            <i class="bi bi-trash note-btn" (click)="deleteNote(note)"></i>
-          </span>
-        </div>
-      </div>
+    <div class="col-md-3 mt-3" *ngFor="let note of notes">
+      <app-note-card [note]="note" [noteForm]="noteForm"></app-note-card>
     </div>
   </div>
   <button
@@ -31,27 +13,25 @@
     Create note
   </button>
 
-  <form [formGroup]="noteForm">
-    <app-modal
-      [modalConfig]="{
-        id: 'addNotesModal',
-        modalLabel: 'Create new note',
-        modalTitleLabel: 'Note title',
-        modalTextLabel: 'Note text',
-        modalResumeBtnText: 'Create note'
-      }"
-      [noteForm]="noteForm"
-      [action]="'create'"
-    ></app-modal>
-  </form>
+  <app-modal
+    [modalConfig]="{
+      id: 'addNotesModal',
+      modalLabel: 'Create new note',
+      modalTitleLabel: 'Title',
+      modalTextLabel: 'Text',
+      modalResumeBtnText: 'Submit'
+    }"
+    [noteForm]="noteForm"
+    [action]="'create'"
+  ></app-modal>
 
   <app-modal
     [modalConfig]="{
       id: 'editNotesModal',
-      modalLabel: 'Edit note',
-      modalTitleLabel: 'Note title',
-      modalTextLabel: 'Note text',
-      modalResumeBtnText: 'Edit note'
+      modalLabel: 'Edit',
+      modalTitleLabel: 'Title',
+      modalTextLabel: 'Text',
+      modalResumeBtnText: 'Submit'
     }"
     [noteForm]="noteForm"
     [action]="'edit'"

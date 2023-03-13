@@ -1,0 +1,19 @@
+<div class="card card-body">
+  <h5>{{ note.noteTitle }}</h5>
+  <p class="text-muted">
+    {{ note.noteDescription }}
+  </p>
+  <div class="d-flex align-items-center">
+    <span class="mx-2">
+      <i
+        class="bi bi-pen note-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#editNotesModal"
+        (click)="updateNote(note)"
+      ></i>
+    </span>
+    <span class="mx-2">
+      <i class="bi bi-trash note-btn" (click)="deleteNote(note)"></i>
+    </span>
+  </div>
+</div>
